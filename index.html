@@ -58,18 +58,23 @@
             somar() {
                 this.operator = (a, b) => +a + +b;
                 this.setPrevious();
+                this.current += '+';
+                
             },
             diminuir() {
                 this.operator = (a, b) => a - b;
                 this.setPrevious();
+                this.current += '-';
             },
             multiplicar() {
                 this.operator = (a, b) => a * b;
                 this.setPrevious();
+                this.current += 'x';
             },
             dividir() {
                 this.operator = (a, b) => a / b;
                 this.setPrevious();
+                this.current += '÷';
             },
             igual() {
                 this.current = this.operator(this.previous, this.current);
