@@ -1,0 +1,53 @@
+.main {
+    margin: 0 auto;
+    width: 400px;
+    font-size: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    background-color: black;
+    border: 5px solid black;
+    font-family: 'Quantico', sans-serif, Verdana, Geneva;
+    border-radius: 10px;
+}
+
+
+.display {
+    grid-column: 1 / 5;
+    background-color: lightgreen;
+    text-align: right;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+
+.zero {
+    grid-column: 1 / 3;
+}
+
+.botao {
+    border-radius: 10px;
+    background-color: lightgray;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.equal {
+    grid-column: 3 / 5;
+    color: black;
+    background-color: lightyellow;
+}
+
+.clear {
+    background-color: lightcoral;
+    grid-column: 1 / 3;
+}
+
+.operator {
+    background-color: darkgrey;
+}
+
+.footer {
+    text-align: center;
+}

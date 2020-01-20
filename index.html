@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>V-Calc</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quantico&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <div class="display">{{ current || '0' }}</div>
+            <div class="botao clear" @click="clear">C</div>
+            <div class="botao equal" @click="igual">=</div>
+            <div class="botao" @click="append(7)">7</div>
+            <div class="botao" @click="append(8)">8</div>
+            <div class="botao" @click="append(9)">9</div>
+            <div class="botao operator" @click="dividir">÷</div>
+            <div class="botao" @click="append(4)">4</div>
+            <div class="botao" @click="append(5)">5</div>
+            <div class="botao" @click="append(6)">6</div>
+            <div class="botao operator" @click="multiplicar">x</div>
+            <div class="botao" @click="append(1)">1</div>
+            <div class="botao" @click="append(2)">2</div>
+            <div class="botao" @click="append(3)">3</div>
+            <div class="botao operator" @click="diminuir">-</div>
+            <div class="botao zero" @click="append(0)">0</div>
+            <div class="botao" @click="ponto">.</div>
+            <div class="botao operator" @click="somar">+</div>
+
+
+        </div>
+        <h4 class="footer">by Vitor</h4>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            previous: null,
+            current: '',
+            operator: null,
+            opClicked: false,
+        },
+        methods: {
+            clear() {
+                this.current = '',
+                this.previous = null
+            },
+            append(number) {
+                if (this.opClicked) {
+                    this.current = '';
+                    this.opClicked = false;
+                }
+                this.current = this.current + number;
+            },
+            somar() {
+                this.operator = (a, b) => +a + +b;
+                this.setPrevious();
+            },
+            diminuir() {
+                this.operator = (a, b) => a - b;
+                this.setPrevious();
+            },
+            multiplicar() {
+                this.operator = (a, b) => a * b;
+                this.setPrevious();
+            },
+            dividir() {
+                this.operator = (a, b) => a / b;
+                this.setPrevious();
+            },
+            igual() {
+                this.current = this.operator(this.previous, this.current);
+            },
+            setPrevious() {
+                this.previous = this.current;
+                this.opClicked = true;
+            },
+            ponto() {
+                if (this.current.indexOf('.') === -1) {
+                    this.append('.');
+                }
+            },
+        }
+    })
+</script>
+</html>
