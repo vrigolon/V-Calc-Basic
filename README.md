@@ -4,7 +4,7 @@ Basic calculator made with Vue.js
 Just a simple project example
 
 ## Live demo:
-https://vitor-rigolon.github.io/V-Calc-Basic/
+https://vrigolon.github.io/V-Calc-Basic/
 
 This repo is also automatically deployed to Netlify at: https://v-calc.netlify.com/
 
